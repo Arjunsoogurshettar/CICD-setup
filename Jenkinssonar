@@ -44,10 +44,10 @@ pipeline {
                     sh 'curl -o jenkins-test-1.0.jar http://13.233.184.139:8081/artifactory/libs-release/com/example/jenkins-test/1.0/jenkins-test-1.0.jar'
                    
                     sh '''
-                        aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin 804480554088.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com
-                        docker build -t sstest .
-                        docker tag sstest:latest 804480554088.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/sstest:latest
-                        docker push 804480554088.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/sstest:latest
+                        aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 183295439964.dkr.ecr.ap-south-1.amazonaws.com
+                        docker build -t dev/sstest1 .
+                        docker tag dev/sstest1:latest 183295439964.dkr.ecr.ap-south-1.amazonaws.com/dev/sstest1:latest
+                        docker push 183295439964.dkr.ecr.ap-south-1.amazonaws.com/dev/sstest1:latest
 
                         # Update kubeconfig to interact with EKS
                         aws eks update-kubeconfig --region ap-south-1 --name cluster-eksctl1
