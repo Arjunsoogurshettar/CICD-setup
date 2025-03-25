@@ -50,7 +50,7 @@ pipeline {
                         docker push 183295439964.dkr.ecr.ap-south-1.amazonaws.com/dev/sstest1:latest
 
                         # Update kubeconfig to interact with EKS
-                        aws eks update-kubeconfig --region ap-south-1 --name cluster-eksctl1
+                        aws eks update-kubeconfig --region ap-south-1 --name cluster-eksctl2
                         kubectl apply -f manifest.yaml
                         sleep 10
                         kubectl get pods -n ss-dev
