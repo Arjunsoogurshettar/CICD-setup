@@ -29,7 +29,7 @@ spec:
       imagePullSecrets:
         - name: ecr-secret  # Added this to authenticate with ECR
       containers:
-      - image: 804480554088.dkr.ecr.ap-south-1.amazonaws.com/sstest
+      - image: 183295439964.dkr.ecr.ap-south-1.amazonaws.com/sstest
         name: ss
         imagePullPolicy: Always
         env:
