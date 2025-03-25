@@ -1,4 +1,4 @@
-pipeline {
+docker build -t sstest .pipeline {
     agent any
     environment {
         AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
@@ -45,9 +45,9 @@ pipeline {
                    
                     sh '''
                         aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 183295439964.dkr.ecr.ap-south-1.amazonaws.com
-                        docker build -t dev/sstest1 .
-                        docker tag dev/sstest1:latest 183295439964.dkr.ecr.ap-south-1.amazonaws.com/dev/sstest1:latest
-                        docker push 183295439964.dkr.ecr.ap-south-1.amazonaws.com/dev/sstest1:latest
+                        docker build -t sstest .
+                        docker tag sstest:latest 183295439964.dkr.ecr.ap-south-1.amazonaws.com/sstest:latest
+                        docker push 183295439964.dkr.ecr.ap-south-1.amazonaws.com/sstest:latest
 
                         # Update kubeconfig to interact with EKS
                         aws eks update-kubeconfig --region ap-south-1 --name cluster-eksctl2
